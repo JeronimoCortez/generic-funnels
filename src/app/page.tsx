@@ -3,7 +3,7 @@ import Script from "next/script";
 import { useRef, useState, useEffect } from "react";
 import CalificationForm from "./components/CalificationForm";
 import CalificationFormDirect from "./components/CalificationFormDirect";
-import { idVsl, srcVsl, TESTIMONIALS } from "./utils/constantes";
+import { ALT_IMG_GENERIC, idVsl, srcVsl, TESTIMONIALS } from "./utils/constantes";
 
 export default function Home() {
   const [isFormOpened, setIsFormOpened] = useState(false);
@@ -36,11 +36,11 @@ export default function Home() {
   ];
 
 
-  const ALT_IMG_GENERIC = "Manu Nuñez - Fit"
+
   return (
     <div>
       {isFormOpened && <CalificationFormDirect variant={variant} />}
-      <header className="bg-[#0051ff] max-w-[85%] w-[400px] rounded-full mt-8 md:mt-12 mx-auto">
+      <header className="bg-[var(--primary)] max-w-[85%] w-[400px] rounded-full mt-8 md:mt-12 mx-auto">
         <div className="cf-container">
           <h3 className="text-center text-[#f5f5f5] text-[14px] py-3 font-bold leading-[115%]">
             {variant === "A" && (
@@ -64,19 +64,19 @@ export default function Home() {
           <h1 className="text-center text-[20px] md:text-[32px] font-bold leading-[120%]">
             <span>
               BAJÁ ENTRE{" "}
-              <span className="text-[#0051ff]">
+              <span className="text-[var(--primary)]">
                 6 Y 15 KG DE GRASA CORPORAL Y TONIFICÁ EN 90 DÍAS
               </span>{" "}
-              CON MI <span className="text-[#0051ff]">MÉTODO FIT90</span> - SIN
+              CON MI <span className="text-[var(--primary)]">MÉTODO FIT90</span> - SIN
               DIETAS EXTREMAS NI RUTINAS IMPOSIBLES
             </span>
           </h1>
           <section className="relative">
-            <div className="bg-[#0051ff] border-4 overflow-clip rounded-[12px] md:rounded-[16px] border-[#0051ff] mt-6 max-w-[750px] mx-auto">
-              <div className="p-1 md:p-2 text-center text-[14px] text-white font-bold bg-[#0051ff]">
+            <div className="bg-[var(--primary)] border-4 overflow-clip rounded-[12px] md:rounded-[16px] border-[var(--primary)] mt-6 max-w-[750px] mx-auto">
+              <div className="p-1 md:p-2 text-center text-[14px] text-white font-bold bg-[var(--primary)]">
                 <span>PASO 1 de 2:</span> MIRÁ EL VIDEO COMPLETO
               </div>
-              <div className="bg-[#0051ff] aspect-video rounded-[8px] md:rounded-[12px] overflow-clip">
+              <div className="bg-[var(--primary)] aspect-video rounded-[8px] md:rounded-[12px] overflow-clip">
                 <iframe
                   className="w-full aspect-video"
                   id= {`${idVsl}`}
@@ -127,8 +127,8 @@ export default function Home() {
                       key={testimonial.video}
                       className="p-2 rounded-[24px] relative overflow-clip"
                     >
-                      <div className="bg-[#0051ff] size-[600px] md:size-[700px] top-0 md:-top-[100px] blur-[100px] opacity-[70%] rounded-full absolute left-[calc(50%-300px)] md:left-[calc(50%-350px)] -z-50"></div>
-                      <div className="relative bg-[#0051ff] z-50 p-8 md:p-[50px] rounded-[20px] flex md:flex-row flex-col gap-4 md:gap-8">
+                      <div className="bg-[var(--primary)] size-[600px] md:size-[700px] top-0 md:-top-[100px] blur-[100px] opacity-[70%] rounded-full absolute left-[calc(50%-300px)] md:left-[calc(50%-350px)] -z-50"></div>
+                      <div className="relative bg-[var(--primary)] z-50 p-8 md:p-[50px] rounded-[20px] flex md:flex-row flex-col gap-4 md:gap-8">
                         <div className="w-full md:min-w-[360px] aspect-video rounded-[10px] overflow-hidden">
                           <iframe
                             className="w-full h-full"
@@ -187,7 +187,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-4 mt-8">
             {TESTIMONIALS.map((t, i) => (
               <div className="rounded  overflow-hidden">
-                <p className="text-center py-2 bg-[#0051ff] text-[#f5f5f5] font-semibold">
+                <p className="text-center py-2 bg-[var(--primary)] text-[#f5f5f5] font-semibold">
                   {t.weight}
                 </p>
                 <img
@@ -227,8 +227,8 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="bg-[#0051ff] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute left-[calc(50%-300px)] md:-left-[300px] -bottom-[300px] md:block hidden -z-50"></div>
-        <div className="bg-[#0051ff] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute right-[calc(50%-300px)] md:-right-[300px] -bottom-[300px] md:block hidden -z-50"></div>
+        <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute left-[calc(50%-300px)] md:-left-[300px] -bottom-[300px] md:block hidden -z-50"></div>
+        <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute right-[calc(50%-300px)] md:-right-[300px] -bottom-[300px] md:block hidden -z-50"></div>
       </section>
 
       <p className="pb-6 pt-8 text-[14px] text-center px-4 text-white/60">

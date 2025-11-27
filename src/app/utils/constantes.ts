@@ -4,6 +4,8 @@ export const calendlyBaseUrl = "https://calendly.com/marianoponce2002/60min"
 
 export const waNumber = "5492216720769";
 
+export const ALT_IMG_GENERIC = "Manu Nuñez - Fit"
+
 // Calendario: helpers
 export const titleCalender = "Reunión con el equipo de Manu – Plan para recomponer hormonas y músculo";
 export const descriptionCalender = `Reunión 1:1 para alinear objetivos y plan.\nEnlace: MEETING_URL\nTraer dudas y objetivos claros.`;

@@ -32,7 +32,7 @@ export default function Home() {
             Si ya intentaste de todo y nada te funcionó, es porque nadie diseñó un método que se adapte a tu vida real. Hasta ahora.
           </p> */}
           <h1 className="text-center text-[24px] md:text-[32px] font-bold leading-[120%]">
-            BAJA ENTRE <span className="text-[#0051ff]">5 Y 15 KG DE GRASA CORPORAL EN 90 DÍAS</span> CON EL <span className="text-[#0051ff]">MÉTODO FIT90</span> - SIN DIETAS EXTREMAS NI RUTINAS IMPOSIBLES
+            BAJA ENTRE <span className="text-[var(--primary)]">5 Y 15 KG DE GRASA CORPORAL EN 90 DÍAS</span> CON EL <span className="text-[var(--primary)]">MÉTODO FIT90</span> - SIN DIETAS EXTREMAS NI RUTINAS IMPOSIBLES
           </h1>
           <p className="mt-4 text-center max-w-[900px] mx-auto">
             <strong className="underline">Paso 1:</strong> Hace clic en el video, llena el formulario y mirá el video completo.
@@ -40,10 +40,10 @@ export default function Home() {
             <strong className="underline">Paso 2:</strong> Aplicalo, y transforma tu vida, como te ves y como te ven, para siempre.
           </p>
           <div
-            className="border-4 rounded-[12px] md:rounded-[16px] border-[#0051ff] mt-8 max-w-[750px] mx-auto cursor-pointer"
+            className="border-4 rounded-[12px] md:rounded-[16px] border-[var(--primary)] mt-8 max-w-[750px] mx-auto cursor-pointer"
             onClick={() => { setIsFormOpened(true) }}
           >
-            <div className="p-2 text-center text-[#000] font-bold bg-[#0051ff]">
+            <div className="p-2 text-center text-[#000] font-bold bg-[var(--primary)]">
               CLIC PARA VER EL MÉTODO
             </div>
             <div
@@ -150,23 +150,23 @@ export default function Home() {
 
           <div className="grid md:grid-cols-5 gap-4 mt-8">
             <div>
-              <p className="text-center py-2 bg-[#0051ff] text-black font-semibold">-8 KG en 3 Meses</p>
+              <p className="text-center py-2 bg-[var(--primary)] text-black font-semibold">-8 KG en 3 Meses</p>
               <img src="/images/eli-cambio-1.jpg" alt="Manu Nunez Fit - Cambio 1" />
             </div>
             <div>
-              <p className="text-center py-2 bg-[#0051ff] text-black font-semibold">-7 KG en 3 Meses</p>
+              <p className="text-center py-2 bg-[var(--primary)] text-black font-semibold">-7 KG en 3 Meses</p>
               <img src="/images/eli-cambio-2.jpg" alt="Manu Nunez Fit - Cambio 2" />
             </div>
             <div>
-              <p className="text-center py-2 bg-[#0051ff] text-black font-semibold">-5 KG en 1 Mes</p>
+              <p className="text-center py-2 bg-[var(--primary)] text-black font-semibold">-5 KG en 1 Mes</p>
               <img src="/images/eli-cambio-3.jpg" alt="Manu Nunez Fit - Cambio 3" />
             </div>
             <div>
-              <p className="text-center py-2 bg-[#0051ff] text-black font-semibold">-5 KG en 2 Meses</p>
+              <p className="text-center py-2 bg-[var(--primary)] text-black font-semibold">-5 KG en 2 Meses</p>
               <img src="/images/eli-cambio-4.jpg" alt="Manu Nunez Fit - Cambio 4" />
             </div>
             <div>
-              <p className="text-center py-2 bg-[#0051ff] text-black font-semibold">-5 KG en 2 Meses</p>
+              <p className="text-center py-2 bg-[var(--primary)] text-black font-semibold">-5 KG en 2 Meses</p>
               <img src="/images/eli-cambio-5.jpg" alt="Manu Nunez Fit - Cambio 5" />
             </div>
           </div>

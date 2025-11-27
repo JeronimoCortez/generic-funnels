@@ -223,7 +223,7 @@ export default function ThankYou() {
             { txt: "-5,5 KG en 1 Meses", img: "/images/testimonios/testimonio-5.webp" },
           ].map((t, i) => (
             <div key={i}>
-              <p className="text-center py-2 bg-[#0051ff] text-black font-semibold">{t.txt}</p>
+              <p className="text-center py-2 bg-[var(--primary)] text-black font-semibold">{t.txt}</p>
               <img className="w-full h-[260px] object-cover" src={t.img} alt={`Cambio ${i+1}`} />
             </div>
           ))}
