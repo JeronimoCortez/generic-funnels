@@ -158,11 +158,11 @@ export default function CalificationFormDirect({ variant }: Props) {
         subtitle:
           'Esto nos ayuda a adaptar tu alimentación y entrenamiento a tu estilo de vida.',
         options: [
-          { value: 'negocio-propio', label: 'Tengo mi propio negocio' },
+          { value: 'negocio-propio', label: 'Tengo mi propio negocio con empleados' },
           { value: 'profesional', label: 'Soy profesional (Abogado, Médico, etc.)' },
-          { value: 'trabajador', label: 'Trabajador' },
-          { value: 'estudiante', label: 'Estudiante' },
-          { value: 'trabajador-estudiante', label: 'Trabajador y Estudiante' },
+          { value: 'freelance', label: 'Freelance / Home office' },
+          { value: 'trabajador', label: 'Trabajo manual / fisico' },
+          { value: 'otro', label: 'Otro' },
         ],
       },
       {
