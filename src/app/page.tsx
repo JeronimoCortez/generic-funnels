@@ -1,9 +1,13 @@
 "use client";
-import Script from "next/script";
 import { useRef, useState, useEffect } from "react";
-import CalificationForm from "./components/CalificationForm";
 import CalificationFormDirect from "./components/CalificationFormDirect";
-import { ALT_IMG_GENERIC, idVsl, srcVsl, TESTIMONIALS } from "./utils/constantes";
+import {
+  ALT_IMG_GENERIC,
+  coachName,
+  idVsl,
+  srcVsl,
+  TESTIMONIALS,
+} from "./utils/constantes";
 
 export default function Home() {
   const [isFormOpened, setIsFormOpened] = useState(false);
@@ -35,14 +39,12 @@ export default function Home() {
     },
   ];
 
-
-
   return (
     <div>
       {isFormOpened && <CalificationFormDirect variant={variant} />}
       <header className="bg-[var(--primary)] max-w-[85%] w-[400px] rounded-full mt-8 md:mt-12 mx-auto">
         <div className="cf-container">
-          <h3 className="text-center text-[#f5f5f5] text-[14px] py-3 font-bold leading-[115%]">
+          <h3 className="text-center text-[var(--text-primary)] text-[14px] py-3 font-bold leading-[115%]">
             {variant === "A" && (
               <span>
                 Te exigis, te castigas, lo das todo… y aún así ¿no te reconoces
@@ -64,22 +66,25 @@ export default function Home() {
           <h1 className="text-center text-[20px] md:text-[32px] font-bold leading-[120%]">
             <span>
               BAJÁ ENTRE{" "}
-              <span className="text-[var(--primary)]">
-                6 Y 15 KG DE GRASA CORPORAL Y TONIFICÁ EN 90 DÍAS
+              <span className="bg-[var(--primary)]">
+                8 Y 12 KG DE GRASA CORPORAL Y TONIFICÁ EN 90 DÍAS
               </span>{" "}
-              CON MI <span className="text-[var(--primary)]">MÉTODO FIT90</span> - SIN
-              DIETAS EXTREMAS NI RUTINAS IMPOSIBLES
+              CON MI{" "}
+              <span className="bg-[var(--primary)]">
+                MÉTODO PARA HOMBRES OCUPADOS
+              </span>{" "}
+              - SIN DIETAS EXTREMAS NI RUTINAS IMPOSIBLES
             </span>
           </h1>
           <section className="relative">
             <div className="bg-[var(--primary)] border-4 overflow-clip rounded-[12px] md:rounded-[16px] border-[var(--primary)] mt-6 max-w-[750px] mx-auto">
-              <div className="p-1 md:p-2 text-center text-[14px] text-white font-bold bg-[var(--primary)]">
+              <div className="p-1 md:p-2 text-center text-[14px] text-[var(--text-primary)] font-bold bg-[var(--primary)]">
                 <span>PASO 1 de 2:</span> MIRÁ EL VIDEO COMPLETO
               </div>
               <div className="bg-[var(--primary)] aspect-video rounded-[8px] md:rounded-[12px] overflow-clip">
                 <iframe
                   className="w-full aspect-video"
-                  id= {`${idVsl}`}
+                  id={`${idVsl}`}
                   src={`${srcVsl}`}
                   allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
                 ></iframe>
@@ -184,28 +189,32 @@ export default function Home() {
             pensado específicamente para vos.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-4 mt-8">
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
             {TESTIMONIALS.map((t, i) => (
-              <div className="rounded  overflow-hidden">
+              <div className="rounded-[14px] w-full md:w-[32%] bg-[var(--primary)] p-1 overflow-hidden">
                 <p className="text-center py-2 bg-[var(--primary)] text-[#f5f5f5] font-semibold">
                   {t.weight}
                 </p>
                 <img
-                  className="w-full h-[290px] max-h-full object-cover"
+                  className="w-full rounded-[10px] h-[290px] max-h-full object-cover"
                   src={`${t.img}`}
                   alt={`${ALT_IMG_GENERIC} cambio ${i + 1}`}
                 />
               </div>
             ))}
-            <div className="h-[290px] overflow-clip relative">
+            <div className="h-full w-full md:w-[32%] min-h-[338px] overflow-clip relative border-4 border-[var(--primary)] p-1 rounded-[14px]">
               <div className="absolute flex items-center justify-center w-full h-full bg-black/90">
                 <p className="text-white text-center px-8 font-semibold">
                   +20 cambios como estos
-                  <br/>
+                  <br />
                   (Mirá el video completo y agendá tu sesión de diagnóstico)
                 </p>
               </div>
-              <img className="w-full h-[290px] max-h-full object-cover" src="/images/testimonios/testimonio-1.png" alt={`${ALT_IMG_GENERIC}`} />
+              <img
+                className="w-full h-full object-cover min-h-[338px]"
+                src="/images/testimonios/testimonio-1.png"
+                alt={`${ALT_IMG_GENERIC}`}
+              />
             </div>
           </div>
           {/* Botón bloqueado 5 minutos */}
@@ -232,7 +241,7 @@ export default function Home() {
       </section>
 
       <p className="pb-6 pt-8 text-[14px] text-center px-4 text-white/60">
-        © Manu Nuñez 2025. Todos los derechos reservados.
+        © {coachName} 2025. Todos los derechos reservados.
       </p>
     </div>
   );

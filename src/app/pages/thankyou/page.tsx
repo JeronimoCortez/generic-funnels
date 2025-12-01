@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
-import { descriptionCalender, titleCalender, waNumber, locationCalender } from "@/app/utils/constantes";
+import { descriptionCalender, titleCalender, waNumber, locationCalender, idVsl, idThankyou, srcThankyou, coachName } from "@/app/utils/constantes";
 
 export default function ThankYou() {
   // Opcional: recuperar datos del paso anterior
@@ -119,8 +119,8 @@ export default function ThankYou() {
       "BEGIN:VCARD",
       "VERSION:3.0",
       "N:Nunez;Manu;;;",
-      "FN:Manu Nunez",
-      "ORG:Manu Nunez Fit",
+      `FN:${coachName}`,
+      `ORG:${coachName}`,
       "TITLE:Coach",
       `TEL;TYPE=CELL:+${waNumber}`,
       "END:VCARD"
@@ -137,7 +137,10 @@ export default function ThankYou() {
           <span><strong>¡Último paso!</strong> Confirmá y agendá para no perder tu cupo.</span>
         </p>
 
-        <iframe className="w-full aspect-video my-4" id="panda-4f47185b-9860-47d9-b95b-ada5b45addcf" src="https://player-vz-5c2adb98-6a4.tv.pandavideo.com/embed/?v=4f47185b-9860-47d9-b95b-ada5b45addcf" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"></iframe>
+        <iframe className="w-full aspect-video my-4" 
+        id={`${idThankyou}`}
+        src={`${srcThankyou}`}
+        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"></iframe>
 
         {/* Título + countdown */}
         <h1 className="text-[26px] text-black font-bold leading-[115%] mb-2">

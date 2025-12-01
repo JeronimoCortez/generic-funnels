@@ -1,6 +1,8 @@
+export const coachName = "Manu nuñez"
+
 export const pixelId = "1391736115664543"
 
-export const calendlyBaseUrl = "https://calendly.com/marianoponce2002/60min"
+export const calendlyBaseUrl = "https://calendly.com/sarlomanuel33/30min?&hide_gdpr_banner=1%22"
 
 export const waNumber = "5492216720769";
 
@@ -13,7 +15,11 @@ export const locationCalender = "Online (se compartirá enlace)";
 
 // VSL
 export const idVsl = "panda-069e112f-6e84-4b51-819b-379c77bc03b5";
-export const srcVsl = "https://player-vz-5c2adb98-6a4.tv.pandavideo.com/embed/?v=069e112f-6e84-4b51-819b-379c77bc03b5"; 
+export const srcVsl = "https://player-vz-5c2adb98-6a4.tv.pandavideo.com/embed/?v=069e112f-6e84-4b51-819b-379c77bc03b5";
+
+// Thankyou
+export const idThankyou = "panda-1de861f0-5f8b-45d4-ba82-18bd332f961a";
+export const srcThankyou = "https://player-vz-5c2adb98-6a4.tv.pandavideo.com/embed/?v=1de861f0-5f8b-45d4-ba82-18bd332f961a";
 
 export const VIDEO_TESTIMONIALS = [
     {
@@ -49,7 +55,7 @@ export const TESTIMONIALS = [
             img: "/images/testimonios/testimonio-2.png",
         },
         {
-            weight: "-5kg en 3 meses",
+            weight: "-5kg en 10 meses",
             img: "/images/testimonios/testimonio-3.png",
         },
         {
