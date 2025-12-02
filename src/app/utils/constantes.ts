@@ -72,6 +72,10 @@ export const TESTIMONIALS_THANKYOU_IMG = [
 ]
 
 
-export const CALENDLY_SPAN = "Vos también podés."
+export const CALENDLY_TITLE_PART1 =
+  "Nuestros clientes bajan entre 6 y 15 kg de grasa corporal en 3 meses.";
 
-export const CALENDLY_TITLE = `Nuestros clientes bajan entre 6 y 15 kg de grasa corporal en 3 meses. ${CALENDLY_SPAN} Agenda una llamada y vamos a hablar de:`;
+export const CALENDLY_SPAN = "Vos también podés";
+
+export const CALENDLY_TITLE_PART2 =
+  "Agenda una llamada y vamos a hablar de:";
