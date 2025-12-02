@@ -46,20 +46,32 @@ export const VIDEO_TESTIMONIALS = [
 ];
 
 export const TESTIMONIALS = [
-        {
-            weight: "-5kg en 3 meses",
-            img: "/images/testimonios/testimonio-1.png",
-        },
-        {
-            weight: "-5kg en 3 meses",
-            img: "/images/testimonios/testimonio-2.png",
-        },
-        {
-            weight: "-5kg en 10 meses",
-            img: "/images/testimonios/testimonio-3.png",
-        },
-        {
-            weight: "-5kg en 3 meses",
-            img: "/images/testimonios/testimonio-4.png",
-        },
-    ];
+    {
+        weight: "-5kg en 3 meses",
+        img: "/images/testimonios/testimonio-1.png",
+    },
+    {
+        weight: "-5kg en 3 meses",
+        img: "/images/testimonios/testimonio-2.png",
+    },
+    {
+        weight: "-5kg en 10 meses",
+        img: "/images/testimonios/testimonio-3.png",
+    },
+    {
+        weight: "-5kg en 3 meses",
+        img: "/images/testimonios/testimonio-4.png",
+    },
+];
+
+// Haceme una constante aparte para modificar puntualmente que imagenes queremos en THANKYOU
+export const TESTIMONIALS_THANKYOU_IMG = [
+    { txt: "-17 KG en 3 Meses", img: "/images/testimonios/testimonio-1.png" },
+    { txt: "-4 KG en 1 Mes", img: "/images/testimonios/testimonio-3.png" },
+    { txt: "-5,5 KG en 1 Meses", img: "/images/testimonios/testimonio-4.png" },
+]
+
+
+export const CALENDLY_SPAN = "Vos también podés."
+
+export const CALENDLY_TITLE = `Nuestros clientes bajan entre 6 y 15 kg de grasa corporal en 3 meses. ${CALENDLY_SPAN} Agenda una llamada y vamos a hablar de:`;

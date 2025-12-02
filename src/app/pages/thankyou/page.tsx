@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
-import { descriptionCalender, titleCalender, waNumber, locationCalender, idVsl, idThankyou, srcThankyou, coachName } from "@/app/utils/constantes";
+import { descriptionCalender, titleCalender, waNumber, locationCalender, idVsl, idThankyou, srcThankyou, coachName, TESTIMONIALS_THANKYOU_IMG } from "@/app/utils/constantes";
 
 export default function ThankYou() {
   // Opcional: recuperar datos del paso anterior
@@ -220,11 +220,7 @@ export default function ThankYou() {
 
         {/* Social proof compacto arriba del fold */}
         <div className="grid md:grid-cols-3 gap-4 mt-8">
-          {[
-            { txt: "-17 KG en 3 Meses", img: "/images/testimonios/testimonio-1.webp" },
-            { txt: "-4 KG en 1 Mes", img: "/images/testimonios/testimonio-3.webp" },
-            { txt: "-5,5 KG en 1 Meses", img: "/images/testimonios/testimonio-5.webp" },
-          ].map((t, i) => (
+          {TESTIMONIALS_THANKYOU_IMG.map((t, i) => (
             <div key={i}>
               <p className="text-center py-2 bg-[var(--primary)] text-black font-semibold">{t.txt}</p>
               <img className="w-full h-[260px] object-cover" src={t.img} alt={`Cambio ${i+1}`} />
