@@ -133,7 +133,7 @@ export default function Home() {
                       className="p-2 rounded-[24px] relative overflow-clip"
                     >
                       <div className="bg-[var(--primary)] size-[600px] md:size-[700px] top-0 md:-top-[100px] blur-[100px] opacity-[70%] rounded-full absolute left-[calc(50%-300px)] md:left-[calc(50%-350px)] -z-50"></div>
-                      <div className="relative bg-[var(--primary)] z-50 p-8 md:p-[50px] rounded-[20px] flex md:flex-row flex-col gap-4 md:gap-8">
+                      <div className="relative bg-[var(--background)] z-50 p-8 md:p-[50px] rounded-[20px] flex md:flex-row flex-col gap-4 md:gap-8">
                         <div className="w-full md:min-w-[360px] aspect-video rounded-[10px] overflow-hidden">
                           <iframe
                             className="w-full h-full"
@@ -179,7 +179,7 @@ export default function Home() {
         </>
       )}
 
-      <section className="py-[60px] md:py-[80px] relative overflow-clip">
+      <section className="pt-[60px] md:pt-[80px] pb-8 relative overflow-clip">
         <div className="cf-container">
           <h2 className="text-[28px] font-bold text-white text-center uppercase max-w-[600px] leading-[120%] mx-auto">
             ESTOS RESULTADOS PODES OBTENER SI AGENDAS HOY
@@ -238,11 +238,11 @@ export default function Home() {
         </div>
         <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute left-[calc(50%-300px)] md:-left-[300px] -bottom-[300px] md:block hidden -z-50"></div>
         <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute right-[calc(50%-300px)] md:-right-[300px] -bottom-[300px] md:block hidden -z-50"></div>
-      </section>
 
-      <p className="pb-6 pt-8 text-[14px] text-center px-4 text-white/60">
-        © {coachName} 2025. Todos los derechos reservados.
-      </p>
+        <p className="pb-6 mt-[100px] text-[14px] text-center px-4 text-white/60">
+          © {coachName} 2025. Todos los derechos reservados.
+        </p>
+      </section>
     </div>
   );
 }
