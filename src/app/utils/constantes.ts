@@ -64,18 +64,34 @@ export const TESTIMONIALS = [
     },
 ];
 
-// Haceme una constante aparte para modificar puntualmente que imagenes queremos en THANKYOU
+// Imagen con texto en testimonios page
+export const MORE_CHANGES_IMG = "/images/testimonios/placeholder.webp";
+
+// Hacemos una constante aparte para modificar puntualmente que imagenes queremos en THANKYOU
 export const TESTIMONIALS_THANKYOU_IMG = [
     { txt: "-17 KG en 3 Meses", img: "/images/testimonios/testimonio-1.png" },
     { txt: "-4 KG en 1 Mes", img: "/images/testimonios/testimonio-3.png" },
     { txt: "-5,5 KG en 1 Meses", img: "/images/testimonios/testimonio-4.png" },
 ]
 
+// El testimonio que se habilita despues de ver el vsl principal de page
+export const TESTIMONIALS_VIDEO_PAGE = [
+    {
+        video:
+            "./placeholder.mp4",
+        titulo: "Mateo bajo 17 KG en SOLO 3 meses",
+        story:
+            "Antes me miraba de reojo y me veía espantoso... Son 90 días que me cambiaron la vida. Es un cambio gigante no solo para mi cuerpo, sino también para mi mentalidad.",
+        nombre: "Mateo Falco",
+        dato: "Buenos Aires, Argentina",
+    },
+];
+
 
 export const CALENDLY_TITLE_PART1 =
-  "Nuestros clientes bajan entre 6 y 15 kg de grasa corporal en 3 meses.";
+    "Nuestros clientes bajan entre 6 y 15 kg de grasa corporal en 3 meses.";
 
 export const CALENDLY_SPAN = "Vos también podés";
 
 export const CALENDLY_TITLE_PART2 =
-  "Agenda una llamada y vamos a hablar de:";
+    "Agenda una llamada y vamos a hablar de:";

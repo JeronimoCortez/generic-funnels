@@ -5,8 +5,10 @@ import {
   ALT_IMG_GENERIC,
   coachName,
   idVsl,
+  MORE_CHANGES_IMG,
   srcVsl,
   TESTIMONIALS,
+  TESTIMONIALS_VIDEO_PAGE,
 } from "./utils/constantes";
 
 export default function Home() {
@@ -18,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsUnlocked(true);
-    }, 0.5 * 60 * 1000); // 5 minutos
+    }, 5 * 60 * 1000); // 5 minutos
 
     return () => clearTimeout(timer);
   }, []);
@@ -27,17 +29,7 @@ export default function Home() {
   const variant = variantRef.current;
   console.log(variant);
 
-  const VIDEO_TESTIMONIALS = [
-    {
-      video:
-        "https://fast.wistia.net/embed/iframe/eowyh45vlt?web_component=true&seo=true",
-      titulo: "Mateo bajo 17 KG en SOLO 3 meses",
-      story:
-        "Antes me miraba de reojo y me veía espantoso... Son 90 días que me cambiaron la vida. Es un cambio gigante no solo para mi cuerpo, sino también para mi mentalidad.",
-      nombre: "Mateo Falco",
-      dato: "Buenos Aires, Argentina",
-    },
-  ];
+
 
   return (
     <div>
@@ -66,11 +58,11 @@ export default function Home() {
           <h1 className="text-center text-[20px] md:text-[32px] font-bold leading-[120%]">
             <span>
               BAJÁ ENTRE{" "}
-              <span className="bg-[var(--primary)]">
+              <span className="bg-[var(--primary)] text-[var(--background)]">
                 8 Y 12 KG DE GRASA CORPORAL Y TONIFICÁ EN 90 DÍAS
               </span>{" "}
               CON MI{" "}
-              <span className="bg-[var(--primary)]">
+              <span className="bg-[var(--primary)] text-[var(--background)]">
                 MÉTODO PARA HOMBRES OCUPADOS
               </span>{" "}
               - SIN DIETAS EXTREMAS NI RUTINAS IMPOSIBLES
@@ -126,14 +118,14 @@ export default function Home() {
                 MATEO LO LOGRO ¿QUE ESTAS ESPERANDO?
               </h2>
               <div className="mt-8 max-w-[900px] mx-auto space-y-6">
-                {VIDEO_TESTIMONIALS.map((testimonial) => {
+                {TESTIMONIALS_VIDEO_PAGE.map((testimonial) => {
                   return (
                     <div
                       key={testimonial.video}
                       className="p-2 rounded-[24px] relative overflow-clip"
                     >
                       <div className="bg-[var(--primary)] size-[600px] md:size-[700px] top-0 md:-top-[100px] blur-[100px] opacity-[70%] rounded-full absolute left-[calc(50%-300px)] md:left-[calc(50%-350px)] -z-50"></div>
-                      <div className="relative bg-[var(--background)] z-50 p-8 md:p-[50px] rounded-[20px] flex md:flex-row flex-col gap-4 md:gap-8">
+                      <div className="relative bg-[var(--primary)] z-50 p-8 md:p-[50px] rounded-[20px] flex md:flex-row flex-col gap-4 md:gap-8">
                         <div className="w-full md:min-w-[360px] aspect-video rounded-[10px] overflow-hidden">
                           <iframe
                             className="w-full h-full"
@@ -179,7 +171,7 @@ export default function Home() {
         </>
       )}
 
-      <section className="pt-[60px] md:pt-[80px] pb-8 relative overflow-clip">
+      <section className="py-[60px] md:py-[80px] relative overflow-clip">
         <div className="cf-container">
           <h2 className="text-[28px] font-bold text-white text-center uppercase max-w-[600px] leading-[120%] mx-auto">
             ESTOS RESULTADOS PODES OBTENER SI AGENDAS HOY
@@ -212,7 +204,7 @@ export default function Home() {
               </div>
               <img
                 className="w-full h-full object-cover min-h-[338px]"
-                src="/images/testimonios/testimonio-1.png"
+                src={`${MORE_CHANGES_IMG}`}
                 alt={`${ALT_IMG_GENERIC}`}
               />
             </div>
@@ -238,11 +230,11 @@ export default function Home() {
         </div>
         <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute left-[calc(50%-300px)] md:-left-[300px] -bottom-[300px] md:block hidden -z-50"></div>
         <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute right-[calc(50%-300px)] md:-right-[300px] -bottom-[300px] md:block hidden -z-50"></div>
-
-        <p className="pb-6 mt-[100px] text-[14px] text-center px-4 text-white/60">
-          © {coachName} 2025. Todos los derechos reservados.
-        </p>
       </section>
+
+      <p className="pb-6 pt-8 text-[14px] text-center px-4 text-white/60">
+        © {coachName} 2025. Todos los derechos reservados.
+      </p>
     </div>
   );
 }
