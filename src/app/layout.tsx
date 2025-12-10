@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
-import { coachName } from "./utils/constantes";
+import { coachName, hotjarID } from "./utils/constantes";
 
 export const metadata: Metadata = {
   title: `${coachName} Fit - Baja entre 5 y 15 kilogramos de grasa con mi metodo para adultos ocupados`,
@@ -47,7 +47,7 @@ export default function RootLayout({
         {`
           (function(h,o,t,j,a,r){
             h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
-            h._hjSettings={hjid:6503658,hjsv:6};
+            h._hjSettings={hjid:${hotjarID},hjsv:6};
             a=o.getElementsByTagName('head')[0];
             r=o.createElement('script');r.async=1;
             r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;

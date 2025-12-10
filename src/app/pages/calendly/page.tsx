@@ -5,6 +5,7 @@ import {
   CALENDLY_TITLE_PART1,
   CALENDLY_TITLE_PART2,
   calendlyBaseUrl,
+  TESTIMONIALS,
   waNumber,
 } from "@/app/utils/constantes";
 import { useEffect, useMemo, useState } from "react";
@@ -179,6 +180,26 @@ export default function CalendlyFast() {
                 alt={`${ALT_IMG_GENERIC}`}
               />
             </div> */}
+          </div>
+        </div>
+      </section>
+
+       {/* Social proof – sin cambios */}
+      <section className="py-[40px] px-4">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            {TESTIMONIALS.map((t, i) => (
+              <div className="rounded-[14px] w-full md:w-[32%] bg-[var(--primary)] p-1 overflow-hidden">
+                <p className="text-center py-2 bg-[var(--primary)] text-[#111] font-semibold">
+                  {t.weight}
+                </p>
+                <img
+                  className="w-full aspect-square rounded-[10px] md:h-[290px] max-h-full object-cover"
+                  src={`${t.img}`}
+                  alt={`${ALT_IMG_GENERIC} cambio ${i + 1}`}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
