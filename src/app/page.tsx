@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import CalificationFormDirect from "./components/CalificationFormDirect";
+import Faqs from "./components/Faqs";
 import {
   ALT_IMG_GENERIC,
   coachName,
@@ -20,7 +21,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsUnlocked(true);
-    }, 0.1 * 60 * 1000); // 5 minutos
+    }, 0 * 60 * 1000); // 5 minutos
 
     return () => clearTimeout(timer);
   }, []);
@@ -32,7 +33,7 @@ export default function Home() {
 
 
   return (
-    <div>
+    <div className="relative overflow-clip">
       {isFormOpened && <CalificationFormDirect variant={variant} />}
       <header className="bg-[var(--primary)] max-w-[85%] w-[400px] rounded-full mt-8 md:mt-12 mx-auto">
         <div className="cf-container">
@@ -58,20 +59,21 @@ export default function Home() {
           <h1 className="text-center text-[20px] md:text-[32px] font-bold leading-[120%]">
             <span>
               BAJÁ ENTRE{" "}
-              <span className="bg-[var(--primary)] text-[var(--background)]">
-                8 Y 12 KG DE GRASA CORPORAL Y TONIFICÁ EN 90 DÍAS
+              <span className="">
+                [X] Y [Y] KG DE GRASA CORPORAL Y TONIFICÁ EN 90 DÍAS
               </span>{" "}
               CON MI{" "}
-              <span className="bg-[var(--primary)] text-[var(--background)]">
+              <span className="">
                 MÉTODO PARA HOMBRES OCUPADOS
               </span>{" "}
-              - SIN DIETAS EXTREMAS NI RUTINAS IMPOSIBLES
             </span>
+            <br/>
+            <span className="text-[16px] text-[var(--primary)] leading-[100%] block mt-2">SIN DIETAS EXTREMAS NI RUTINAS IMPOSIBLES</span>
           </h1>
           <section className="relative">
             <div className="bg-[var(--primary)] border-4 overflow-clip rounded-[12px] md:rounded-[16px] border-[var(--primary)] mt-6 max-w-[750px] mx-auto">
               <div className="p-1 md:p-2 text-center text-[14px] text-[var(--text-primary)] font-bold bg-[var(--primary)]">
-                <span>PASO 1 de 2:</span> MIRÁ EL VIDEO COMPLETO
+                <span>Paso 1 de 2:</span> Mirá este video completo 👇
               </div>
               <div className="bg-[var(--primary)] aspect-video rounded-[8px] md:rounded-[12px] overflow-clip">
                 <iframe
@@ -84,7 +86,7 @@ export default function Home() {
             </div>
           </section>
           <p className="mt-4 text-center text-[16px] max-w-[700px] mx-auto">
-            <strong>PASO 2 de 2:</strong> Agenda una Llamada para Asegurar tu
+            <strong>Paso 2 de 2:</strong> Agenda una Llamada para Asegurar tu
             Lugar y tu Cambio Fisico.
           </p>
 
@@ -102,7 +104,7 @@ export default function Home() {
             </button>
             <p className="text-center mt-4 text-white/60 italic mx-auto max-w-[350px] text-[14px]">
               {isUnlocked
-                ? "Cupos limitados - No te lo pierdas!"
+                ? "Solo 6 cupos nuevos por mes"
                 : "⚠️ El botón se habilitará luego de ver el video."}
             </p>
           </div>
@@ -115,7 +117,7 @@ export default function Home() {
           <section className="py-[40px] relative z-20">
             <div className="cf-container">
               <h2 className="text-[28px] font-bold text-white text-center uppercase max-w-[500px] leading-[120%] mx-auto">
-                MATEO LO LOGRO ¿QUE ESTAS ESPERANDO?
+                ELLOS YA LO LOGRARON ¿QUE ESTAS ESPERANDO?
               </h2>
               <div className="mt-8 max-w-[900px] mx-auto space-y-6">
                 {TESTIMONIALS_VIDEO_PAGE.map((testimonial) => {
@@ -125,8 +127,8 @@ export default function Home() {
                       className="p-2 rounded-[24px] relative overflow-clip"
                     >
                       <div className="bg-[var(--primary)] size-[600px] md:size-[700px] top-0 md:-top-[100px] blur-[100px] opacity-[70%] rounded-full absolute left-[calc(50%-300px)] md:left-[calc(50%-350px)] -z-50"></div>
-                      <div className="relative bg-[var(--primary)] z-50 p-8 md:p-[50px] rounded-[20px] flex md:flex-row flex-col gap-4 md:gap-8">
-                        <div className="w-full md:min-w-[360px] aspect-video rounded-[10px] overflow-hidden">
+                      <div className="relative bg-[var(--background)] z-50 p-8 md:p-[50px] rounded-[20px] flex md:flex-row flex-col gap-4 md:gap-8">
+                        <div className="w-full max-w-[400px] aspect-video rounded-[10px] overflow-hidden">
                           <iframe
                             className="w-full h-full"
                             src={testimonial.video}
@@ -164,7 +166,7 @@ export default function Home() {
                 ¡AGENDAR MI SESIÓN DE DIAGNÓSTICO!
               </button>
               <p className="text-center mt-4 text-white/60 italic mx-auto max-w-[350px] text-[14px]">
-                Cupos limitados - No te lo pierdas!
+                Solo 6 cupos nuevos por mes
               </p>
             </div>
           </section>
@@ -188,7 +190,7 @@ export default function Home() {
                   {t.weight}
                 </p>
                 <img
-                  className="w-full rounded-[10px] h-[290px] max-h-full object-cover"
+                  className="w-full rounded-[10px] h-[310px] max-h-full object-cover"
                   src={`${t.img}`}
                   alt={`${ALT_IMG_GENERIC} cambio ${i + 1}`}
                 />
@@ -223,18 +225,42 @@ export default function Home() {
             </button>
             <p className="text-center mt-4 text-white/60 italic mx-auto max-w-[350px] text-[14px]">
               {isUnlocked
-                ? "Cupos limitados - No te lo pierdas!"
+                ? "Solo 6 cupos nuevos por mes"
                 : "⚠️ El botón se habilitará luego de ver el video."}
             </p>
           </div>
         </div>
-        <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute left-[calc(50%-300px)] md:-left-[300px] -bottom-[300px] md:block hidden -z-50"></div>
-        <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute right-[calc(50%-300px)] md:-right-[300px] -bottom-[300px] md:block hidden -z-50"></div>
+      </section>
+
+      <section className="pt-[40px] pb-[80px]">
+        <div className="cf-container">          
+          <Faqs />
+          {/* Botón bloqueado 5 minutos */}
+          <div className="mt-8">
+            <button
+              className="cf-btn disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={!isUnlocked}
+              onClick={() => {
+                if (!isUnlocked) return;
+                setIsFormOpened(true);
+              }}
+            >
+              ¡AGENDAR MI SESIÓN DE DIAGNÓSTICO!
+            </button>
+            <p className="text-center mt-4 text-white/60 italic mx-auto max-w-[350px] text-[14px]">
+              {isUnlocked
+                ? "Solo 6 cupos nuevos por mes"
+                : "⚠️ El botón se habilitará luego de ver el video."}
+            </p>
+          </div>
+        </div>
       </section>
 
       <p className="pb-6 pt-8 text-[14px] text-center px-4 text-white/60">
         © {coachName} 2025. Todos los derechos reservados.
       </p>
+        <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute left-[calc(50%-300px)] md:-left-[300px] -bottom-[300px] md:block hidden -z-50"></div>
+        <div className="bg-[var(--primary)] size-[600px] md:size-[700px] blur-[100px] md:blur-[200px] opacity-[50%] rounded-full absolute right-[calc(50%-300px)] md:-right-[300px] -bottom-[300px] md:block hidden -z-50"></div>
     </div>
   );
 }
