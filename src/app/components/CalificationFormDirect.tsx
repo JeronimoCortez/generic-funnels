@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-type Props = { variant: string };
+type Props = { variant: string; onClose: () => void };
 type Opcion = { value: string; label: string };
 
 type FormValues = {
@@ -67,7 +67,7 @@ const PAISES = [
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
-export default function CalificationFormDirect({ variant }: Props) {
+export default function CalificationFormDirect({ variant, onClose }: Props) {
   const {
     register,
     handleSubmit,
@@ -266,7 +266,11 @@ export default function CalificationFormDirect({ variant }: Props) {
         const s = steps[stepIndex];
         if (canAdvanceFromStep(s)) next();
       }
-      if (e.key === 'Escape' || e.key === 'ArrowLeft') back();
+      if (e.key === 'Escape') {
+        if (stepIndex === 0) onClose();
+        else back();
+      }
+      if (e.key === 'ArrowLeft') back();
     };
 
     window.addEventListener('keydown', onKey);
@@ -318,7 +322,7 @@ export default function CalificationFormDirect({ variant }: Props) {
         (data.presupuesto === 'presupuesto-intermedio' || data.presupuesto === 'presupuesto-alto') &&
         (data.edad === 'adulto' || data.edad === 'mayor') &&
         (data.urgencia === '7' || data.urgencia === '10') &&
-        (data.ocupacion === 'negocio-propio' || data.ocupacion === 'profesional' );
+        (data.ocupacion === 'negocio-propio' || data.ocupacion === 'profesional');
 
       localStorage.setItem('isQualified', isQualified ? 'true' : 'false');
       localStorage.setItem('name', data.name);
@@ -495,9 +499,15 @@ export default function CalificationFormDirect({ variant }: Props) {
           <div className="mt-6 flex items-center justify-between gap-3">
             <button
               type="button"
-              onClick={() => setStepIndex((i) => Math.max(0, i - 1))}
+              onClick={() => {
+                if (stepIndex === 0) {
+                  onClose();
+                  return;
+                }
+                setStepIndex((i) => Math.max(0, i - 1));
+              }}
               className="px-4 py-3 rounded-lg border border-white/15 text-white/90 hover:bg-white/10 transition"
-              disabled={stepIndex === 0 || loading}
+              disabled={loading}
             >
               Atrás
             </button>
@@ -537,7 +547,7 @@ export default function CalificationFormDirect({ variant }: Props) {
           </div>
 
           <p className="text-white/70 text-xs mt-4">
-             PD: El método está diseñado para hombres ocupados; no es la típica rutina de
+            PD: El método está diseñado para hombres ocupados; no es la típica rutina de
             influencer que solo puede cumplir un adolescente que vive con los padres, ni las dietas de moda que son insostenibles.
           </p>
         </form>

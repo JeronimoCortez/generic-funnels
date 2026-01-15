@@ -31,7 +31,7 @@ export default function Faqs() {
 
 	return (
 			<div>
-				<h2 className="text-white max-w-[300px] md:max-w-[600px] mx-auto text-[32px] md:text-[51px] font-bold text-center leading-[100%] mt-8 drop-shadow-[0_15px_15px_rgba(255,255,255,0.25)]">
+				<h2 className="text-[28px] font-bold text-white text-center uppercase max-w-[500px] leading-[120%] mx-auto">
 					Preguntas más frecuentes
 				</h2>
 
@@ -51,7 +51,7 @@ export default function Faqs() {
 								}}
 								aria-expanded={isOpen}
 							>
-								<h3 className="font-semibold text-[18px] md:text-[20px] text-white flex justify-between items-center">
+								<h3 className="font-medium tracking-normal text-[16px] md:text-[18px] text-white flex justify-between items-center">
 									<span className="pe-8">{item.pregunta}</span>
 									<PlusIcon rotated={isOpen} />
 								</h3>
