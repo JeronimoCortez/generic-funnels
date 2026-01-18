@@ -61,18 +61,18 @@ export default function Home() {
       {/* Sección VSL (siempre visible) */}
       <section className="mt-6 pb-[60px] md:pb-[100px] border-b border-[var(--primary)] rounded-b-[45px] md:rounded-b-[60px] relative overflow-clip">
         <div className="cf-container">
-          <h1 className="text-center text-[20px] md:text-[34px] font-bold uppercase leading-[140%]">
+          <h1 className="text-center text-[22px] md:text-[34px] font-bold uppercase leading-[140%]">
             <span>
               Bajá entre 6 y 15 kg de grasa corporal, recupera tu energía y
               tonificá en 90 días con mi Método [M] de forma 100% natural
-            </span>{" "}
-            <span className="text-[var(--primary)]">
-              SIN DIETAS EXTREMAS NI RUTINAS IMPOSIBLES
             </span>
           </h1>
+          <p className="text-[var(--primary)] text-center mt-2">
+            (Sin Dietas Extremas Ni Rutinas Agobiantes)
+          </p>
           <section className="relative">
             <div className="bg-[#131313] p-1 pt-0 border-1 border-[var(--primary)] overflow-clip rounded-[12px] md:rounded-[16px] border-[var(--primary)] mt-6 max-w-[750px] mx-auto">
-              <div className="p-1 md:p-2 text-center text-[12px] uppercase text-[var(--text-primary)] tracking-widest bg-[#131313]">
+              <div className="p-2 text-center text-[12px] uppercase text-[var(--text-primary)] tracking-widest bg-[#131313]">
                 <span>Paso 1 de 2:</span> Mirá este video completo
               </div>
               <div className="bg-[#131313] aspect-video rounded-[8px] md:rounded-[12px] overflow-clip">
@@ -206,7 +206,7 @@ export default function Home() {
                 </h3>
               </div>
             </header>
-            <h2 className="text-[22px] md:text-[40px] mt-6 font-bold text-white text-center uppercase max-w-[780px] leading-[130%] mx-auto">
+            <h2 className="text-[24px] md:text-[40px] mt-6 font-bold text-white text-center uppercase max-w-[780px] leading-[130%] mx-auto">
               [M] no es para cualquiera. Pero si es para vos,{" "}
               <span className="text-[var(--primary)]">
                 puede cambiarte la vida en 90 días...
