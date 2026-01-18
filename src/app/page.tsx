@@ -127,7 +127,7 @@ export default function Home() {
               <h2 className="text-[36px] md:text-[44px] font-bold text-white text-center max-w-[500px] leading-[130%] mx-auto">
                 Ellos Ya Lo Lograron ¿Y Vos Qué Esperas?
               </h2>
-              <div className="my-12 max-w-[900px] mx-auto space-y-6">
+              <div className="my-8 md:my-12 max-w-[900px] mx-auto space-y-6">
                 {TESTIMONIALS_VIDEO_PAGE.map((testimonial) => {
                   return (
                     <div
@@ -217,7 +217,7 @@ export default function Home() {
               de 35 años que buscan un cambio real y sostenible en su salud y
               apariencia física.
             </p>
-            <div className="mt-12 grid md:grid-cols-2 gap-6 md:gap-12 max-w-[900px] mx-auto">
+            <div className="my-8 md:my-12 grid md:grid-cols-2 gap-6 md:gap-12 max-w-[900px] mx-auto">
               <div className="overflow-clip relative p-1 rounded-[20px] bg-linear-[-142deg] from-[#FFF]/5 via-[#B4B4B4]/50 to-[#FFF]/5">
                 <div className="bg-linear-0 z-50 border border-[#252525] from-[#070707] to-[#161616] p-8 rounded-[18px] h-full">
                   <h3 className="text-white text-[24px] font-semibold tracking-[-1%]">
@@ -294,7 +294,7 @@ export default function Home() {
               </div>
             </div>
             <button
-              className="cf-btn mt-12"
+              className="cf-btn"
               onClick={() => {
                 setIsFormOpened(true);
               }}
@@ -353,7 +353,7 @@ export default function Home() {
                 resultados sin depender de la motivación.
               </p>
             </div>
-            <div className="mt-12 grid md:grid-cols-3 gap-[12px] max-w-[900px] mx-auto">
+            <div className="my-8 md:my-12 grid md:grid-cols-3 gap-[12px] max-w-[900px] mx-auto">
               {METHOD_INCLUDES.map((m, i) => (
                 <div
                   key={i}
@@ -389,7 +389,7 @@ export default function Home() {
               ))}
             </div>
             <button
-              className="cf-btn mt-12"
+              className="cf-btn"
               onClick={() => {
                 setIsFormOpened(true);
               }}
@@ -472,7 +472,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-12">
+            <div className="mt-8 md:mt-12">
               <button
                 className="cf-btn disabled:opacity-60 disabled:cursor-not-allowed"
                 disabled={!isUnlocked}
