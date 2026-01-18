@@ -36,6 +36,22 @@ export const TESTIMONIALS = [
         weight: "<<LLENAR>>",
         img: "/images/testimonios/placeholder.webp",
     },
+    {
+        weight: "<<LLENAR>>",
+        img: "/images/testimonios/placeholder.webp",
+    },
+    {
+        weight: "<<LLENAR>>",
+        img: "/images/testimonios/placeholder.webp",
+    },
+    {
+        weight: "<<LLENAR>>",
+        img: "/images/testimonios/placeholder.webp",
+    },
+    {
+        weight: "<<LLENAR>>",
+        img: "/images/testimonios/placeholder.webp",
+    },
 ];
 
 // Imagen con texto en testimonios page

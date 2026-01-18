@@ -46,11 +46,11 @@ export default function Faqs() {
 
 	return (
 			<div>
-				<h2 className="text-[28px] font-bold text-white text-center uppercase max-w-[500px] leading-[120%] mx-auto">
-					Preguntas más frecuentes
+				<h2 className="text-[28px] md:text-[44px] font-bold text-white text-center max-w-[500px] leading-[120%] mx-auto">
+					Preguntas Más Frecuentes
 				</h2>
 
-				<div className="max-w-[700px] mx-auto mt-8 grid gap-4" id="faq-container">
+				<div className="max-w-[700px] mx-auto my-12 grid gap-4" id="faq-container">
 					{faqs.map((item, index) => {
 						const isOpen = openIndex === index;
 

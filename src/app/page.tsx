@@ -43,7 +43,7 @@ export default function Home() {
         alt="Sombra"
         className="w-[400px] absolute left-0 top-0 scale-x-[-1] -z-50 hidden md:block"
       />
-      <div className="bg-[var(--primary)]/80 size-[400px] rounded-full left-1/2 transform hidden md:block -translate-x-1/2 absolute -z-50  blur-[400px] -top-[300px]"></div>
+      <div className="bg-[var(--primary)]/80 size-[600px] rounded-full left-1/2 transform hidden md:block -translate-x-1/2 absolute -z-50  blur-[800px] -top-[400px]"></div>
       {isFormOpened && (
         <CalificationFormDirect
           variant={variant}
@@ -59,9 +59,9 @@ export default function Home() {
       </header>
 
       {/* Sección VSL (siempre visible) */}
-      <section className="mt-6 pb-[60px] md:pb-[80px] border-b border-[var(--primary)] rounded-b-[45px] md:rounded-b-[60px] relative overflow-clip">
+      <section className="mt-6 pb-[60px] md:pb-[100px] border-b border-[var(--primary)] rounded-b-[45px] md:rounded-b-[60px] relative overflow-clip">
         <div className="cf-container">
-          <h1 className="text-center text-[20px] md:text-[32px] font-bold uppercase leading-[140%]">
+          <h1 className="text-center text-[20px] md:text-[34px] font-bold uppercase leading-[140%]">
             <span>
               Bajá entre 6 y 15 kg de grasa corporal, recupera tu energía y
               tonificá en 90 días con mi Método [M] de forma 100% natural
@@ -116,18 +116,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-[var(--primary)]/80 size-[400px] rounded-full left-[-200px] absolute -z-50  blur-[200px] -bottom-[300px]"></div>
-        <div className="bg-[var(--primary)]/80 size-[400px] rounded-full right-[-200px] absolute -z-50  blur-[200px] -bottom-[300px]"></div>
+        <div className="bg-[var(--primary)]/80 size-[600px] rounded-full left-[-400px] absolute -z-50  blur-[200px] -bottom-[300px]"></div>
+        <div className="bg-[var(--primary)]/80 size-[600px] rounded-full right-[-400px] absolute -z-50  blur-[200px] -bottom-[300px]"></div>
       </section>
 
       {isUnlocked && (
         <>
-          <section className="py-[90px] bg-[#0E0E0E] border-b border-[#282828] relative z-20">
+          <section className="py-[100px] bg-[#0E0E0E] border-b border-[#282828] relative z-20">
             <div className="cf-container">
-              <h2 className="text-[28px] font-bold text-white text-center uppercase max-w-[500px] leading-[130%] mx-auto">
-                ELLOS YA LO LOGRARON ¿QUE ESTAS ESPERANDO?
+              <h2 className="text-[36px] md:text-[44px] font-bold text-white text-center max-w-[500px] leading-[130%] mx-auto">
+                Ellos Ya Lo Lograron ¿Y Vos Qué Esperas?
               </h2>
-              <div className="mt-8 max-w-[900px] mx-auto space-y-6">
+              <div className="my-12 max-w-[900px] mx-auto space-y-6">
                 {TESTIMONIALS_VIDEO_PAGE.map((testimonial) => {
                   return (
                     <div
@@ -177,7 +177,7 @@ export default function Home() {
                 })}
               </div>
               <button
-                className="cf-btn mt-8"
+                className="cf-btn"
                 onClick={() => {
                   setIsFormOpened(true);
                 }}
@@ -217,7 +217,7 @@ export default function Home() {
               de 35 años que buscan un cambio real y sostenible en su salud y
               apariencia física.
             </p>
-            <div className="mt-8 grid md:grid-cols-2 gap-6 md:gap-12 max-w-[900px] mx-auto">
+            <div className="mt-12 grid md:grid-cols-2 gap-6 md:gap-12 max-w-[900px] mx-auto">
               <div className="overflow-clip relative p-1 rounded-[20px] bg-linear-[-142deg] from-[#FFF]/5 via-[#B4B4B4]/50 to-[#FFF]/5">
                 <div className="bg-linear-0 z-50 border border-[#252525] from-[#070707] to-[#161616] p-8 rounded-[18px] h-full">
                   <h3 className="text-white text-[24px] font-semibold tracking-[-1%]">
@@ -279,7 +279,7 @@ export default function Home() {
                         className="mt-[8px] size-[22px]"
                         alt="Es para vos"
                       />
-                      Sentir estrés frecuentemente, desgano y baja energía.
+                      Sentis estrés frecuentemente, desgano y baja energía.
                     </li>
                     <li className="flex items-start gap-4">
                       <img
@@ -294,7 +294,7 @@ export default function Home() {
               </div>
             </div>
             <button
-              className="cf-btn mt-8"
+              className="cf-btn mt-12"
               onClick={() => {
                 setIsFormOpened(true);
               }}
@@ -323,6 +323,10 @@ export default function Home() {
               border-t border-[var(--primary)]
             "
         >
+
+          <div className="bg-[var(--primary)]/80 size-[900px] rounded-full left-[-400px] absolute  blur-[200px] -top-[600px]"></div>
+          <div className="bg-[var(--primary)]/80 size-[900px] rounded-full right-[-400px] absolute  blur-[200px] -top-[600px]"></div>
+          <div className="bg-black w-full h-[700px] rounded-[200px] z-10  blur-[150px] absolute left-0 top-[50px]"></div>
           <div className="cf-container z-50 relative">
             <div
               className="
@@ -340,7 +344,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-8">
-              <h2 className="text-[40px] font-bold text-white text-center max-w-[900px] leading-[130%] mx-auto">
+              <h2 className="text-[36px] md:text-[40px] font-bold text-white text-center max-w-[900px] leading-[130%] mx-auto">
                 ¿Que incluye el metodo [M]?
               </h2>
               <p className="text-white/80 text-center mt-4 max-w-[600px] text-[18px] mx-auto">
@@ -402,31 +406,29 @@ export default function Home() {
         </section>
       </div>
 
-      <section className="w-full  bg-[#000]">
-        {/* <div className="cf-container relative z-10"> */}
-        <div className="cf-container">
-          <div className="mx-auto w-full max-w-[1200px] px-6 text-center">
+      <section className="w-full  bg-[#000] relative pt-[80px] md:pt-[160px]">
+        <div className="h-[2px] top-0 absolute overflow-clip w-full z-50 hidden md:block">
+          <div className="size-[400px] blur-[200px] left-[calc(50%-200px)] -top-[200px] absolute bg-[var(--primary)]"></div>
+        </div>
+        <img src="/images/img_background_testimonials.webp" className="absolute md:top-0 top-[130px] w-full object-contain" alt="Fit Funnels" />
+        <div className="cf-container relative">
+          <div className="mx-auto w-full max-w-[1200px] text-center">
             <h2 className="text-[28px] md:text-[50px] max-w-[750px] mx-auto font-bold text-white leading-[130%]">
               Estos Resultados podes Obtener Si Agendas Hoy
             </h2>
             <p className="mt-4 text-white/80 text-[18px] max-w-[400px] mx-auto">
               Si ellos pudieron, vos también podés.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 py-4 mt-12">
+            <div className="grid md:grid-cols-3 mt-[140px] md:mt-[192px] gap-4">
               {TESTIMONIALS.map((t, i) => (
                 <div
                   className="
                     rounded-[14px]
                     w-full
-                    sm:w-[280px]
-                    md:w-[300px]
-                    lg:w-[324px]
-                    aspect-[324/464]
+                    h-[350px] flex flex-col
                     bg-linear-150 from-[var(--primary)]/20 via-[var(--primary)] to-[var(--primary)]/20
                     p-1
                     overflow-clip
-                    flex
-                    flex-col
                   "
                 >
                   <p className="text-center py-2 tracking-wider text-[#f5f5f5]">
@@ -446,18 +448,15 @@ export default function Home() {
               ))}
               <div
                 className="
-              rounded-[14px]
-              w-full
-              sm:w-[280px]
-              md:w-[300px]
-              lg:w-[324px]
-              aspect-[324/464]
-              bg-linear-150 from-[var(--primary)]/20 via-[var(--primary)] to-[var(--primary)]/20
-              p-1
-              overflow-clip
-              flex
-              flex-col
-            "
+                  rounded-[14px]
+                  w-full
+                  bg-linear-150 from-[var(--primary)]/20 via-[var(--primary)] to-[var(--primary)]/20
+                  p-1
+                  overflow-clip
+                  flex
+                  flex-col
+                  h-[350px]
+                "
               >
                 <p className="text-center py-2 tracking-wider text-[#f5f5f5]">
                   TU PRÓXIMO CAMBIO
@@ -473,7 +472,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-8">
+            <div className="mt-12">
               <button
                 className="cf-btn disabled:opacity-60 disabled:cursor-not-allowed"
                 disabled={!isUnlocked}
