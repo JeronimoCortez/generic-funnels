@@ -413,7 +413,7 @@ export default function Home() {
         <img src="/images/img_background_testimonials.webp" className="absolute md:top-0 top-[130px] w-full object-contain" alt="Fit Funnels" />
         <div className="cf-container relative">
           <div className="mx-auto w-full max-w-[1200px] text-center">
-            <h2 className="text-[28px] md:text-[50px] max-w-[750px] mx-auto font-bold text-white leading-[130%]">
+            <h2 className="text-[32px] md:text-[50px] max-w-[750px] mx-auto font-bold text-white leading-[130%]">
               Estos Resultados podes Obtener Si Agendas Hoy
             </h2>
             <p className="mt-4 text-white/80 text-[18px] max-w-[400px] mx-auto">
