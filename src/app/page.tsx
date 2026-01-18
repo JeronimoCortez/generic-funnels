@@ -212,7 +212,7 @@ export default function Home() {
                 puede cambiarte la vida en 90 días...
               </span>
             </h2>
-            <p className="text-white/80 text-[14px] text-center mx-auto max-w-[550px] mt-4">
+            <p className="text-white/80 text-[18px] text-center mx-auto max-w-[550px] mt-4">
               Este método fue diseñado especialmente para profesionales mayores
               de 35 años que buscan un cambio real y sostenible en su salud y
               apariencia física.
@@ -317,37 +317,23 @@ export default function Home() {
               relative
               py-[60px]
               md:py-[90px]
-              bg-[var(--background)]
               rounded-t-[45px]
               md:rounded-t-[60px]
               overflow-hidden
-
-              after:content-['']
-              after:absolute
-              after:bottom-0
-              after:left-1/2
-              after:-translate-x-1/2
-              after:h-[2px]
-              after:w-[80%]
-              after:bg-gradient-to-r
-              after:from-transparent
-              after:via-[var(--primary)]
-              after:to-transparent
+              border-t border-[var(--primary)]
             "
         >
-          <div className="size-[500px] blur-[350px] bg-[var(--primary)] absolute top-[-250px] left-[-100px]"></div>
-          <div className="size-[500px] blur-[350px] bg-[var(--primary)] absolute top-[-250px] right-[-100px]"></div>
           <div className="cf-container z-50 relative">
             <div
               className="
-    flex items-center justify-center
-    mx-auto w-fit lg:w-[305px]
-    h-[41px] px-5
-    border border-[var(--primary)]/24
-    rounded-full
-    text-center
-    bg-[linear-gradient(0deg,#1C1B1B_0%,#0E0E0E_100%)]
-  "
+                flex items-center justify-center
+                mx-auto w-fit lg:w-[305px]
+                h-[41px] px-5
+                border border-[var(--primary)]/24
+                rounded-full
+                text-center
+                bg-[linear-gradient(0deg,#1C1B1B_0%,#0E0E0E_100%)]
+              "
             >
               <p className="text-[#FFF]/80 text-[11px] leading-[37px] tracking-[0.25em]">
                 EL MÉTODO QUE ORDENA TODO
@@ -363,33 +349,43 @@ export default function Home() {
                 resultados sin depender de la motivación.
               </p>
             </div>
-            <div className="mt-8 grid md:grid-cols-3 gap-6 md:gap-12 max-w-[900px] mx-auto">
+            <div className="mt-12 grid md:grid-cols-3 gap-[12px] max-w-[900px] mx-auto">
               {METHOD_INCLUDES.map((m, i) => (
                 <div
                   key={i}
                   className="
-                    relative overflow-hidden
+                    relative
                     p-8 rounded-[24px]
                     text-center
                     bg-black
+                    border-[2px] border-[var(--primary)]/34
                   "
                 >
+                  <div className="-top-[2px] absolute z-50 h-[2px] w-[60%] left-[20%] bg-linear bg-linear-90 bg-center from-[(var(--primary))]/0 via-white/70 to-[var(--primary)]/0"></div>
+                  <div className="absolute w-full h-full overflow-clip top-0 left-0 rounded-[24px]">
+                    <div className="size-[140px] blur-[80px] bg-[var(--primary)]/80 absolute rounded-full -top-[70px] left-[calc(50%-70px)]"></div>
+                  </div>
                   <div
                     className="
-                    mx-auto mb-5
-                    flex h-14 w-14 items-center justify-center
-                    rounded-2xl
-                  "
+                      z-50 relative
+                      mx-auto mb-5
+                      flex p-[25px] items-center justify-center
+                      rounded-2xl
+                      bg-gradient-to-b from-[#551400] to-[#000]
+                      outline-1 outline-[var(--primary)]/60 outline-offset-[4px]  
+                      w-fit
+                      shadow-[0_4px_30px_0_#FF3B0070]
+                    "
                   >
-                    <img src={m.img} alt={m.title} className="h-6 w-6" />
+                    <img src={m.img} alt={m.title} className="size-[42px]" />
                   </div>
 
-                  <p className="text-white text-sm font-medium">{m.title}</p>
+                  <p className="text-white text-[18px] mt-8 font-semibold">{m.title}</p>
                 </div>
               ))}
             </div>
             <button
-              className="cf-btn mt-8"
+              className="cf-btn mt-12"
               onClick={() => {
                 setIsFormOpened(true);
               }}
@@ -408,28 +404,48 @@ export default function Home() {
 
       <section className="w-full  bg-[#000]">
         {/* <div className="cf-container relative z-10"> */}
-        <div
-          className="
-      w-screen
-      min-h-[400px] md:min-h-[500px]
-      bg-[url('/images/img_background_testimonials.jpg')]
-      bg-cover bg-center bg-no-repeat
-      flex items-center
-    "
-        >
+        <div className="cf-container">
           <div className="mx-auto w-full max-w-[1200px] px-6 text-center">
-            <h2 className="text-[28px] font-bold text-white uppercase leading-[130%]">
-              ESTOS RESULTADOS PODÉS OBTENER SI AGENDÁS HOY
+            <h2 className="text-[28px] md:text-[50px] max-w-[750px] mx-auto font-bold text-white leading-[130%]">
+              Estos Resultados podes Obtener Si Agendas Hoy
             </h2>
-            <p className="mt-4 text-white/80 max-w-[400px] mx-auto">
+            <p className="mt-4 text-white/80 text-[18px] max-w-[400px] mx-auto">
               Si ellos pudieron, vos también podés.
             </p>
-          </div>
-        </div>
-        <div className="flex flex-wrap justify-center gap-4 py-4">
-          {TESTIMONIALS.map((t, i) => (
-            <div
-              className="
+            <div className="flex flex-wrap justify-center gap-4 py-4 mt-12">
+              {TESTIMONIALS.map((t, i) => (
+                <div
+                  className="
+                    rounded-[14px]
+                    w-full
+                    sm:w-[280px]
+                    md:w-[300px]
+                    lg:w-[324px]
+                    aspect-[324/464]
+                    bg-linear-150 from-[var(--primary)]/20 via-[var(--primary)] to-[var(--primary)]/20
+                    p-1
+                    overflow-clip
+                    flex
+                    flex-col
+                  "
+                >
+                  <p className="text-center py-2 tracking-wider text-[#f5f5f5]">
+                    {t.weight}
+                  </p>
+
+                  <div className="relative flex-1 overflow-clip rounded-[10px]">
+                    <div className="absolute inset-0 rounded-[10px] bg-gradient-to-t from-black/90 from-5% to-transparent to-65%" />
+
+                    <img
+                      className="w-full h-full object-cover rounded-[10px]"
+                      src={t.img}
+                      alt={`${ALT_IMG_GENERIC} cambio ${i + 1}`}
+                    />
+                  </div>
+                </div>
+              ))}
+              <div
+                className="
               rounded-[14px]
               w-full
               sm:w-[280px]
@@ -442,70 +458,42 @@ export default function Home() {
               flex
               flex-col
             "
-            >
-              <p className="text-center py-2 tracking-wider text-[#f5f5f5]">
-                {t.weight}
-              </p>
+              >
+                <p className="text-center py-2 tracking-wider text-[#f5f5f5]">
+                  TU PRÓXIMO CAMBIO
+                </p>
+                <div className="relative flex-1 overflow-clip rounded-[10px]">
+                  <div className="absolute inset-0 rounded-[10px] bg-gradient-to-t from-black/90 from-5% to-transparent to-65%" />
 
-              <div className="relative flex-1 overflow-clip rounded-[10px]">
-                <div className="absolute inset-0 rounded-[10px] bg-gradient-to-t from-black/90 from-5% to-transparent to-65%" />
-
-                <img
-                  className="w-full h-full object-cover rounded-[10px]"
-                  src={t.img}
-                  alt={`${ALT_IMG_GENERIC} cambio ${i + 1}`}
-                />
+                  <img
+                    className="w-full h-full object-cover rounded-[10px]"
+                    src={`${MORE_CHANGES_IMG}`}
+                    alt={`${ALT_IMG_GENERIC}`}
+                  />
+                </div>
               </div>
             </div>
-          ))}
-          <div
-            className="
-              rounded-[14px]
-              w-full
-              sm:w-[280px]
-              md:w-[300px]
-              lg:w-[324px]
-              aspect-[324/464]
-              bg-linear-150 from-[var(--primary)]/20 via-[var(--primary)] to-[var(--primary)]/20
-              p-1
-              overflow-clip
-              flex
-              flex-col
-            "
-          >
-            <p className="text-center py-2 tracking-wider text-[#f5f5f5]">
-              TU PRÓXIMO CAMBIO
-            </p>
-            <div className="relative flex-1 overflow-clip rounded-[10px]">
-              <div className="absolute inset-0 rounded-[10px] bg-gradient-to-t from-black/90 from-5% to-transparent to-65%" />
-
-              <img
-                className="w-full h-full object-cover rounded-[10px]"
-                src={`${MORE_CHANGES_IMG}`}
-                alt={`${ALT_IMG_GENERIC}`}
-              />
+            <div className="mt-8">
+              <button
+                className="cf-btn disabled:opacity-60 disabled:cursor-not-allowed"
+                disabled={!isUnlocked}
+                onClick={() => {
+                  if (!isUnlocked) return;
+                  setIsFormOpened(true);
+                }}
+              >
+                ¡AGENDAR MI SESIÓN DE DIAGNÓSTICO!
+              </button>
+              <div className="h-[1px] relative overflow-clip max-w-[212px] mx-auto mt-4">
+                <div className="bg-radial from-white to-black/0 size-[200px]"></div>
+              </div>
+              <p className="text-center my-4 text-white/40 mx-auto max-w-[350px] text-[14px] ">
+                {isUnlocked
+                  ? "Solo 6 cupos nuevos por mes"
+                  : "⚠️ El botón se habilitará luego de ver el video."}
+              </p>
             </div>
           </div>
-        </div>
-        <div className="mt-8">
-          <button
-            className="cf-btn disabled:opacity-60 disabled:cursor-not-allowed"
-            disabled={!isUnlocked}
-            onClick={() => {
-              if (!isUnlocked) return;
-              setIsFormOpened(true);
-            }}
-          >
-            ¡AGENDAR MI SESIÓN DE DIAGNÓSTICO!
-          </button>
-          <div className="h-[1px] relative overflow-clip max-w-[212px] mx-auto mt-4">
-            <div className="bg-radial from-white to-black/0 size-[200px]"></div>
-          </div>
-          <p className="text-center my-4 text-white/40 mx-auto max-w-[350px] text-[14px] ">
-            {isUnlocked
-              ? "Solo 6 cupos nuevos por mes"
-              : "⚠️ El botón se habilitará luego de ver el video."}
-          </p>
         </div>
         {/* </div> */}
       </section>
@@ -537,7 +525,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* <div className="bg-[var(--primary)] overflow-hidden w-full">
+      {/* <div className="bg-[var(--primary)] overflow-hidden w-full">
   <div className="relative flex w-full">
     
     <div className="flex w-max animate-marquee gap-10 px-6 py-4 text-white tracking-wider font-medium">

@@ -76,18 +76,18 @@ export const METHOD_INCLUDES = [
         img: "./images/medical_mobile_app.svg",
         title: `App Mobile "TestoBoost" Todo en uno`
     },
-    {
-        img: "./images/hand_with_a_pill.svg",
-        title: `Suplementación Natural Diagnosticada por el Dr. Alan Inman`
-    }, 
-    {
-        img: "./images/frying_pan.svg",
-        title: `20 Viandas Saludables Mensuales recetadas por la Lic. Ana buteler`
-    }, 
-    {
-        img: "./images/gym.svg",
-        title: `Sistema Personalizado de Alimentación y Entrenamiento`
-    },
+    // {
+    //     img: "./images/hand_with_a_pill.svg",
+    //     title: `Suplementación Natural Diagnosticada por el Dr. Alan Inman`
+    // }, 
+    // {
+    //     img: "./images/frying_pan.svg",
+    //     title: `20 Viandas Saludables Mensuales recetadas por la Lic. Ana buteler`
+    // }, 
+    // {
+    //     img: "./images/gym.svg",
+    //     title: `Sistema Personalizado de Alimentación y Entrenamiento`
+    // },
     {
         img: "./images/stethoscope.svg",
         title: `Diagnóstico y Monitoreo Hormonal`

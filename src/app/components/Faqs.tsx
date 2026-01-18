@@ -10,6 +10,21 @@ const faqs = [
 		respuesta:
 			"Respuesta"
 	},
+	{
+		pregunta: "¿Realmente puedo bajar tanto peso en tan poco tiempo, o es solo humo?",
+		respuesta:
+			"Respuesta"
+	},
+	{
+		pregunta: "¿Realmente puedo bajar tanto peso en tan poco tiempo, o es solo humo?",
+		respuesta:
+			"Respuesta"
+	},
+	{
+		pregunta: "¿Realmente puedo bajar tanto peso en tan poco tiempo, o es solo humo?",
+		respuesta:
+			"Respuesta"
+	},
 ];
 
 function PlusIcon({ rotated }: { rotated: boolean }) {
