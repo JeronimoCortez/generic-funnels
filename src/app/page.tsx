@@ -36,12 +36,12 @@ export default function Home() {
       <img
         src="/images/Sombra.webp"
         alt="Sombra"
-        className="w-[400px] absolute right-0 top-0 -z-50 hidden md:block"
+        className="w-[700px] absolute right-0 top-0 -z-50 hidden md:block"
       />
       <img
         src="/images/Sombra.webp"
         alt="Sombra"
-        className="w-[400px] absolute left-0 top-0 scale-x-[-1] -z-50 hidden md:block"
+        className="w-[700px] absolute left-0 top-0 scale-x-[-1] -z-50 hidden md:block"
       />
       <div className="bg-[var(--primary)]/80 size-[600px] rounded-full left-1/2 transform hidden md:block -translate-x-1/2 absolute -z-50  blur-[800px] -top-[400px]"></div>
       {isFormOpened && (
@@ -50,7 +50,8 @@ export default function Home() {
           onClose={() => setIsFormOpened(false)}
         />
       )}
-      <header className="bg-linear-0 from-[#0E0E0E] to-[#1C1B1B] max-w-[85%] w-[500px] rounded-full mx-auto border border-[var(--primary)]/30 z-50">
+      <img src="/images/logo.png" className="h-[25px] object-contain mx-auto" alt="Logo" />
+      <header className="bg-linear-0 from-[#0E0E0E] to-[#1C1B1B] max-w-[85%] mt-12 w-[500px] rounded-full mx-auto border border-[var(--primary)]/30 z-50">
         <div className="cf-container">
           <h3 className="text-center uppercase text-[var(--text-primary)]/80 tracking-widest text-[12px] py-3 leading-[130%]">
             <span>Exclusivo para profesionales mayores de 35</span>
@@ -61,10 +62,10 @@ export default function Home() {
       {/* Sección VSL (siempre visible) */}
       <section className="mt-6 pb-[60px] md:pb-[100px] border-b border-[var(--primary)] rounded-b-[45px] md:rounded-b-[60px] relative overflow-clip">
         <div className="cf-container">
-          <h1 className="text-center text-[22px] md:text-[34px] font-bold uppercase leading-[140%]">
+          <h1 className="text-center text-[22px] md:text-[38px] font-bold uppercase leading-[140%] md:px-4">
             <span>
-              Bajá entre 6 y 15 kg de grasa, recupera tu energía y
-              tonificá en 90 días con mi Método [M] de forma 100% natural
+              Bajá entre <span>6 y 15 kg de grasa, recupera tu energía y
+              tonificá en 90 días</span> con mi Método [M] de forma 100% natural
             </span>
           </h1>
           <p className="text-[var(--primary)] text-center mt-2">

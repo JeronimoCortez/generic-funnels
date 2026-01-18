@@ -1,9 +1,13 @@
 'use client';
 
+import { hostname } from 'os';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-type Props = { variant: string; onClose: () => void };
+type Props = {
+  variant: string;
+  onClose: () => void;
+};
 type Opcion = { value: string; label: string };
 
 type FormValues = {
@@ -17,8 +21,10 @@ type FormValues = {
   urgencia: string;
   ocupacion: string;
   compromiso90: string;
+  objetivo: string;
   ad: string;
 };
+
 
 // IDs válidos de preguntas de opción única
 type SingleId = Extract<
@@ -39,6 +45,15 @@ type SingleStep = {
   title: string;
   subtitle?: string;
   options: Opcion[];
+  required?: boolean;
+};
+
+type TextStep = {
+  type: 'text';
+  id: 'objetivo';
+  title: string;
+  subtitle?: string;
+  placeholder?: string;
   required?: boolean;
 };
 
@@ -86,14 +101,26 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
       urgencia: '',
       ocupacion: '',
       compromiso90: '',
+      objetivo: '',
       ad: '',
     },
   });
 
+  // Lead ID único por sesión
+  const leadIdRef = useRef<string>('');
+
+  useEffect(() => {
+    // 1 leadId por sesión (sirve para update en el submit final)
+    const existing = sessionStorage.getItem('leadId');
+    const id = existing ?? `lead-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    leadIdRef.current = id;
+    if (!existing) sessionStorage.setItem('leadId', id);
+  }, []);
+
   const [loading, setLoading] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const steps = useMemo<(ContactStep | SingleStep)[]>(
+  const steps = useMemo<(ContactStep | SingleStep | TextStep)[]>(
     () => [
       {
         type: 'contact',
@@ -103,53 +130,53 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
         subtitle:
           'Tus datos son 100% confidenciales. Te tomará menos de 1 minuto.',
       },
-      {
-        type: 'single',
-        id: 'cuerpo',
-        required: true,
-        title: '¿Cómo describirías tu cuerpo hoy?*',
-        subtitle:
-          'No te preocupes, nadie va a juzgarte. Solo queremos entender por dónde empezar.',
-        options: [
-          {
-            value: 'sobrepeso-15kg',
-            label: 'Tengo sobrepeso (quiero perder más de 15 kg por salud)',
-          },
-          {
-            value: 'fuera-de-forma',
-            label:
-              'Estoy fuera de forma (quiero perder entre 7 y 15 kg y quiero verme mejor)',
-          },
-          {
-            value: 'delgado-grasa',
-            label:
-              'Soy delgado(a), pero tengo grasa rebelde que quiero eliminar y ganar músculo',
-          },
-          { value: 'otro', label: 'Otro' },
-        ],
-      },
-      {
-        type: 'single',
-        id: 'urgencia',
-        required: true,
-        title: '¿Qué tan urgente es para ti cambiar tu cuerpo ahora mismo?*',
-        subtitle:
-          'Responde con total sinceridad. Esto nos ayuda a ver cómo ayudarte.',
-        options: [
-          { value: '3', label: '(3 de 10) Estoy buscando info. No es prioridad ahora.' },
-          { value: '5', label: '(5 de 10) Quiero empezar pronto. Me estoy motivando.' },
-          {
-            value: '7',
-            label:
-              '(7 de 10) Quiero empezar ya. Me frustra cómo me siento y quiero recuperar mi salud y autoestima.',
-          },
-          {
-            value: '10',
-            label:
-              '(10 de 10) No puedo esperar más. Esto me afecta física y mentalmente. Haré lo que haga falta.',
-          },
-        ],
-      },
+      // {
+      //   type: 'single',
+      //   id: 'cuerpo',
+      //   required: true,
+      //   title: '¿Cómo describirías tu cuerpo hoy?*',
+      //   subtitle:
+      //     'No te preocupes, nadie va a juzgarte. Solo queremos entender por dónde empezar.',
+      //   options: [
+      //     {
+      //       value: 'sobrepeso-15kg',
+      //       label: 'Tengo sobrepeso (quiero perder más de 15 kg por salud)',
+      //     },
+      //     {
+      //       value: 'fuera-de-forma',
+      //       label:
+      //         'Estoy fuera de forma (quiero perder entre 7 y 15 kg y quiero verme mejor)',
+      //     },
+      //     {
+      //       value: 'delgado-grasa',
+      //       label:
+      //         'Soy delgado(a), pero tengo grasa rebelde que quiero eliminar y ganar músculo',
+      //     },
+      //     { value: 'otro', label: 'Otro' },
+      //   ],
+      // },
+      // {
+      //   type: 'single',
+      //   id: 'urgencia',
+      //   required: true,
+      //   title: '¿Qué tan urgente es para ti cambiar tu cuerpo ahora mismo?*',
+      //   subtitle:
+      //     'Responde con total sinceridad. Esto nos ayuda a ver cómo ayudarte.',
+      //   options: [
+      //     { value: '3', label: '(3 de 10) Estoy buscando info. No es prioridad ahora.' },
+      //     { value: '5', label: '(5 de 10) Quiero empezar pronto. Me estoy motivando.' },
+      //     {
+      //       value: '7',
+      //       label:
+      //         '(7 de 10) Quiero empezar ya. Me frustra cómo me siento y quiero recuperar mi salud y autoestima.',
+      //     },
+      //     {
+      //       value: '10',
+      //       label:
+      //         '(10 de 10) No puedo esperar más. Esto me afecta física y mentalmente. Haré lo que haga falta.',
+      //     },
+      //   ],
+      // },
       {
         type: 'single',
         id: 'ocupacion',
@@ -159,7 +186,7 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
           'Esto nos ayuda a adaptar tu alimentación y entrenamiento a tu estilo de vida.',
         options: [
           { value: 'negocio-propio', label: 'Tengo mi propio negocio con empleados' },
-          { value: 'profesional', label: 'Soy profesional (Abogado, Médico, etc.)' },
+          { value: 'profesional', label: 'Soy profesional (Abogado, Médico, Ingeniero, Programador, etc.)' },
           { value: 'freelance', label: 'Freelance / Home office' },
           { value: 'trabajador', label: 'Trabajo manual / fisico' },
           { value: 'otro', label: 'Otro' },
@@ -188,26 +215,27 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
         ],
       },
       {
+        type: 'text',
+        id: 'objetivo',
+        required: true,
+        title:
+          '¿Cuál es tu objetivo de salud/calidad de vida y cómo querés sentirte en los próximos meses?*',
+        subtitle:
+          'Cuanto más nos cuentes, mejor vamos a poder ayudarte.',
+        placeholder:
+          'Ej: Tener más energía, dejar de cansarme, sentirme bien con mi cuerpo, mejorar mi salud...',
+      },
+      {
         type: 'single',
         id: 'presupuesto',
         required: true,
-        title: '¿Qué tipo de solución estás buscando para transformar tu físico?*',
+        title:
+          'En caso de ser aceptado y sabiendo que es un servicio integral de 3 meses ¿Cuanto estas dispuesto a invertir en vos, tu salud y tu fisico y ser acompañado ayudandote a lograr tus objetivos de forma garantizada? *',
         options: [
-          {
-            value: 'presupuesto-bajo',
-            label:
-              'Quiero una solución económica para empezar por mi cuenta. (En este caso NO agendes, para cambiar tu vida necesitás invertir)',
-          },
-          {
-            value: 'presupuesto-intermedio',
-            label:
-              'Quiero un plan serio, con un equipo de profesionales ayudándome 1 a 1.',
-          },
-          {
-            value: 'presupuesto-alto',
-            label:
-              'Quiero la mejor opción disponible, se que cambiar mi fisico lo vale.',
-          },
+          { value: 'presupuesto-bajo', label: 'Menos de 200 USD (En este caso no vas a poder agendar)' },
+          { value: 'presupuesto-intermedio', label: 'Entre 200 y 400 USD' },
+          { value: 'presupuesto-alto', label: 'Entre 400 y 600 USD' },
+          { value: 'presupuesto-muy-alto', label: '+600 USD' },
         ],
       },
     ],
@@ -233,13 +261,20 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
     return isNameValid && isEmailValid && isPhoneValid;
   };
 
-  const canAdvanceFromStep = (s: ContactStep | SingleStep) => {
+  const canAdvanceFromStep = (s: ContactStep | SingleStep | TextStep) => {
     if (s.type === 'contact') return isContactValid();
+
     if (s.type === 'single' && s.required === true) {
-      return !!values[s.id]; // valor seleccionado
+      return !!values[s.id];
     }
+
+    if (s.type === 'text' && s.required === true) {
+      return (values.objetivo ?? '').trim().length > 10;
+    }
+
     return true;
   };
+
 
   const back = () => setStepIndex((i) => Math.max(0, i - 1));
   const next = () => setStepIndex((i) => Math.min(totalSteps - 1, i + 1));
@@ -266,11 +301,7 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
         const s = steps[stepIndex];
         if (canAdvanceFromStep(s)) next();
       }
-      if (e.key === 'Escape') {
-        if (stepIndex === 0) onClose();
-        else back();
-      }
-      if (e.key === 'ArrowLeft') back();
+      if (e.key === 'Escape' || e.key === 'ArrowLeft') back();
     };
 
     window.addEventListener('keydown', onKey);
@@ -291,11 +322,50 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
     return () => b?.classList.remove('overflow-hidden');
   }, []);
 
+  
+  const hostname = typeof window !== "undefined" ? window.location.hostname : "";
+
+  const N8N_CONTACT_WEBHOOK = hostname.includes("localhost") ?
+					'https://n8n.srv953925.hstgr.cloud/webhook-test/b80b5966-0768-476a-a00f-215adf99e830' :
+					'https://n8n.srv953925.hstgr.cloud/webhook/b80b5966-0768-476a-a00f-215adf99e830';
+
+  const sentContactRef = useRef(false);
+
+  const sendContactToN8N = async () => {
+    if (sentContactRef.current) return; // no duplicar
+    if (!isContactValid()) return;
+
+    console.log('Enviando contacto a N8N...');
+
+    sentContactRef.current = true;
+
+    const payload = {
+      event: 'lead_contact_created',
+      leadId: leadIdRef.current,
+      variant,
+      name: values.name,
+      email: values.email,
+      phone: `${values.codigoPais}${values.telefono}`,
+      codigoPais: values.codigoPais,
+      telefono: values.telefono,
+      ad: values.ad,
+      ts: new Date().toISOString(),
+    };
+
+    // fire-and-forget (no frena UX)
+    fetch(N8N_CONTACT_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify([payload]),
+    }).catch(() => { });
+  };
+
   // ------- Submit
   const onSubmit = async (data: FormValues) => {
     // ✅ Type guard reutilizable
-    const isSingleRequired = (s: ContactStep | SingleStep): s is SingleStep =>
+    const isSingleRequired = (s: ContactStep | SingleStep | TextStep): s is SingleStep =>
       s.type === 'single' && s.required === true;
+
 
     // Doble seguro: si falta algún single requerido, volver al primero que falte
     const requiredIds = steps
@@ -312,17 +382,28 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
     try {
       setLoading(true);
 
-      await fetch('https://hook.us2.make.com/4440nxy5471reiw1q18qotjc15rveijb', {
+      console.log(data)
+
+      // test
+      try {
+        const result = await fetch('https://n8n.srv953925.hstgr.cloud/webhook-test/6f46fb81-91f5-4ffe-8b1c-783d8f3ea581', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify([{ ...data, variant, leadId: leadIdRef.current }]),
+        });
+        console.log(result)
+      } catch { }
+
+      // production
+      await fetch('https://n8n.srv953925.hstgr.cloud/webhook/6f46fb81-91f5-4ffe-8b1c-783d8f3ea581', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify([{ ...data, variant }]),
+          body: JSON.stringify([{ ...data, variant, leadId: leadIdRef.current }]),
       });
 
       const isQualified =
-        (data.presupuesto === 'presupuesto-intermedio' || data.presupuesto === 'presupuesto-alto') &&
-        (data.edad === 'adulto' || data.edad === 'mayor') &&
-        (data.urgencia === '7' || data.urgencia === '10') &&
-        (data.ocupacion === 'negocio-propio' || data.ocupacion === 'profesional');
+        (data.presupuesto === 'presupuesto-intermedio' || data.presupuesto === 'presupuesto-alto' || data.presupuesto === 'presupuesto-muy-alto') &&
+        (data.edad === 'adulto' || data.edad === 'mayor')
 
       localStorage.setItem('isQualified', isQualified ? 'true' : 'false');
       localStorage.setItem('name', data.name);
@@ -389,7 +470,7 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
         ${selected ? 'ring-2 ring-[var(--primary)] border-[var(--primary)]/60' : ''}`}
     >
       <div className="flex items-center gap-3">
-        <span className="inline-flex items-center justify-center min-w-8 h-8 rounded-md bg-[var(--primary)] text-[var(--text-primary)] font-bold">
+        <span className="inline-flex items-center justify-center min-w-8 h-8 rounded-md bg-[var(--primary)] text-white font-bold">
           {LETTERS[index]}
         </span>
         <span className="text-white/90 leading-snug">{text}</span>
@@ -399,12 +480,36 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
 
   const step = steps[stepIndex];
 
+  const progress = useMemo(() => {
+    if (totalSteps <= 1) return 0;
+    // typeform-style: arranca con un poquito y termina en 100
+    return Math.round(((stepIndex + 1) / totalSteps) * 100);
+  }, [stepIndex, totalSteps]);
+
+
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center px-4" style={{ zIndex: 10000 }}>
       <div
         ref={containerRef}
         className="w-full md:max-w-[720px] max-h-[calc(100vh-80px)] overflow-y-auto rounded-[20px] border border-white/10 bg-[#111] p-6 md:p-10 shadow-2xl"
       >
+        {/* Progress bar (Typeform style) */}
+        <div className="mb-5">
+          <div className="flex items-center justify-between text-[12px] text-white/50 mb-2">
+            <span>
+              {stepIndex + 1} / {totalSteps}
+            </span>
+            <span>{progress}%</span>
+          </div>
+
+          <div className="h-[6px] w-full rounded-full bg-white/10 overflow-hidden">
+            <div
+              className="h-full rounded-full bg-[var(--primary)] transition-[width] duration-300 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        </div>
+
         <h2 className="text-[22px] md:text-[26px] font-semibold text-white leading-tight">
           {step.title}
         </h2>
@@ -494,6 +599,23 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
             </div>
           )}
 
+          {step.type === 'text' && (
+            <div className="mt-4">
+              <textarea
+                data-autofocus
+                rows={5}
+                placeholder={step.placeholder}
+                {...register('objetivo', { required: step.required })}
+                className="w-full rounded-xl bg-white text-[#111] px-4 py-3 outline-none resize-none"
+              />
+              {errors.objetivo && (
+                <span className="text-red-400 text-xs mt-1 block">
+                  Este campo es obligatorio
+                </span>
+              )}
+            </div>
+          )}
+
           <input type="hidden" {...register('ad')} />
 
           <div className="mt-6 flex items-center justify-between gap-3">
@@ -519,9 +641,17 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
             ) : (
               <button
                 type="button"
-                onClick={() => {
+                onClick={async () => {
                   const s = steps[stepIndex];
-                  if (canAdvanceFromStep(s)) setStepIndex((i) => i + 1);
+
+                  if (canAdvanceFromStep(s)) {
+                    // Si estamos en el paso de contacto, mandamos el lead a n8n
+                    if (s.type === 'contact') {
+                      await sendContactToN8N();
+                    }
+
+                    setStepIndex((i) => i + 1);
+                  }
                 }}
                 className="cf-btn"
                 disabled={loading || !canAdvanceFromStep(step)}
@@ -538,7 +668,7 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
                   >
                     <path
                       d="M6.41318 11.6364L5.09499 10.3296L8.55522 6.86932H0.447266V4.94887H8.55522L5.09499 1.49432L6.41318 0.181824L12.1404 5.9091L6.41318 11.6364Z"
-                      fill="var(--text-primary)"
+                      fill="#FFF"
                     ></path>
                   </svg>
                 )}
@@ -547,8 +677,7 @@ export default function CalificationFormDirect({ variant, onClose }: Props) {
           </div>
 
           <p className="text-white/70 text-xs mt-4">
-            PD: El método está diseñado para hombres ocupados; no es la típica rutina de
-            influencer que solo puede cumplir un adolescente que vive con los padres, ni las dietas de moda que son insostenibles.
+            PD: El método M90 está pensado para hombres ocupados que quieren resultados reales sin vivir en el gimnasio.
           </p>
         </form>
       </div>

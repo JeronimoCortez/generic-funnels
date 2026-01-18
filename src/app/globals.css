@@ -289,12 +289,12 @@ body {
 }
 .cf-btn {
 	@apply flex items-center font-semibold text-[16px] md:text-[18px] justify-center gap-2 rounded-[12px] w-full py-6 tracking-[-1%] disabled:bg-gray-400 text-[var(--text-primary)] cursor-pointer text-center max-w-[480px] mx-auto 
-	bg-gradient-to-r
+	not-disabled:bg-gradient-to-r
     from-[var(--primary)] via-[#FF693C] to-[var(--primary)]
-    shadow-[0_0_25px_rgba(255,80,0,0.6)]
-    hover:shadow-[0_0_35px_rgba(255,80,0,0.9)]
+    not-disabled:shadow-[0_0_25px_rgba(255,80,0,0.6)]
+    not-disabled:hover:shadow-[0_0_35px_rgba(255,80,0,0.9)]
     transition-all duration-300
-	border-3 border-[#FF754B]/80;
+	border-3 not-disabled:border-[#FF754B]/80 disabled:border-gray-400/80;
 	background-color: var(--primary);
 }
 
