@@ -4,7 +4,7 @@ export const pixelId = "<<LLENAR>>"
 
 export const calendlyBaseUrl = "<<LLENAR>>"
 
-export const waNumber = "<<LLENAR>>"; 
+export const waNumber = "<<LLENAR>>";
 
 export const ALT_IMG_GENERIC = "<<LLENAR>>"
 
@@ -69,3 +69,44 @@ export const CALENDLY_TITLE_PART2 =
     "<<LLENAR>>";
 
 export const hotjarID = "<<LLENAR>>"
+
+// Que incluye el metodo landing
+export const METHOD_INCLUDES = [
+    {
+        img: "./images/medical_mobile_app.svg",
+        title: `App Mobile "TestoBoost" Todo en uno`
+    },
+    {
+        img: "./images/hand_with_a_pill.svg",
+        title: `Suplementación Natural Diagnosticada por el Dr. Alan Inman`
+    }, 
+    {
+        img: "./images/frying_pan.svg",
+        title: `20 Viandas Saludables Mensuales recetadas por la Lic. Ana buteler`
+    }, 
+    {
+        img: "./images/gym.svg",
+        title: `Sistema Personalizado de Alimentación y Entrenamiento`
+    },
+    {
+        img: "./images/stethoscope.svg",
+        title: `Diagnóstico y Monitoreo Hormonal`
+    }, 
+    {
+        img: "./images/classroom.svg",
+        title: `Clases de Motivación y Liderazgo`
+    }, 
+    {
+        img: "./images/test_passed.svg",
+        title: `Tacker de Hábitos`
+    }, 
+    {
+        img: "./images/batch_assign.svg",
+        title: `Comunidad Exclusiva`
+    }, 
+    {
+        img: "./images/today.svg",
+        title: `Seguimiento y Acompañamiento Diario`
+    },
+
+]

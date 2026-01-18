@@ -297,3 +297,16 @@ body {
 	border-3 border-[#FF754B]/80;
 	background-color: var(--primary);
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+}
