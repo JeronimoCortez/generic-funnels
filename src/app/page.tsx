@@ -63,7 +63,7 @@ export default function Home() {
         <div className="cf-container">
           <h1 className="text-center text-[22px] md:text-[34px] font-bold uppercase leading-[140%]">
             <span>
-              Bajá entre 6 y 15 kg de grasa corporal, recupera tu energía y
+              Bajá entre 6 y 15 kg de grasa, recupera tu energía y
               tonificá en 90 días con mi Método [M] de forma 100% natural
             </span>
           </h1>
