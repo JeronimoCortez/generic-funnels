@@ -28,7 +28,7 @@ export default function RootLayout({
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '1391736115664543');
+              fbq('init', '<PIXEL_ID>');
               fbq('track', 'PageView');
             `,
           }}
@@ -39,27 +39,14 @@ export default function RootLayout({
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1391736115664543&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=<PIXEL_ID>&ev=PageView&noscript=1"
           />
         </noscript>
 
-        <Script id="hotjar" strategy="afterInteractive">
-        {`
-          (function(h,o,t,j,a,r){
-            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
-            h._hjSettings={hjid:${hotjarID},hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-        `}
-      </Script>
-
-      <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="" />
-      <link rel="preconnect" href="https://calendly.com" crossOrigin="" />
-      <link rel="dns-prefetch" href="https://assets.calendly.com" />
-      <link rel="dns-prefetch" href="https://calendly.com" />
+        <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="" />
+        <link rel="preconnect" href="https://calendly.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
 
       </head>
       <body>
